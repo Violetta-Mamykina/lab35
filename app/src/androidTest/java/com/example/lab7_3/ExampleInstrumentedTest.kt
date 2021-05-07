@@ -41,7 +41,7 @@ class ExampleInstrumentedTest {
             .check(ViewAssertions.matches(ViewMatchers.withText("Hello World!")))
         Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.text))
-            .check(ViewAssertions.matches(ViewMatchers.withText(containsString("/data/"))))
+            .check(ViewAssertions.matches(ViewMatchers.withText(containsString("/"))))
         //надо?
 //        val context: Context = InstrumentationRegistry.getInstrumentation().context
 //        val intent = context.packageManager.getLaunchIntentForPackage("com.example.lab7_2")
