@@ -8,9 +8,9 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiObject
 import androidx.test.uiautomator.UiSelector
@@ -30,13 +30,15 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @get:Rule
-    val mainRule = ActivityTestRule(MainActivity::class.java)
-    private lateinit var device: UiDevice
+    val rule = activityScenarioRule<MainActivity>()
+//    val mainRule = ActivityTestRule(MainActivity::class.java)
+//    private lateinit var device: UiDevice
 
 
     @Test
     fun broadcastTest() {
-        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        val scenario = rule.scenario
+//        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         Espresso.onView(ViewMatchers.withId(R.id.text))
             .check(ViewAssertions.matches(ViewMatchers.withText("Hello World!")))
         Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
