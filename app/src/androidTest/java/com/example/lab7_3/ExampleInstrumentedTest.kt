@@ -29,8 +29,8 @@ class ExampleInstrumentedTest {
         val scenario = rule.scenario
         Espresso.onView(ViewMatchers.withId(R.id.text))
             .check(ViewAssertions.matches(ViewMatchers.withText("Hello World!")))
-//        Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
-//        Espresso.onView(ViewMatchers.withId(R.id.text))
-//            .check(ViewAssertions.matches(ViewMatchers.withText(containsString("/"))))
+        Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.text))
+            .check(ViewAssertions.matches(ViewMatchers.withText(containsString("/"))))
     }
 }
